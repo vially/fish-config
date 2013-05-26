@@ -14,8 +14,8 @@ function __fish_systemctl_mounts
 end
 
 function __fish_systemctl_service_paths
-    command find /etc/systemd/system -type f -name '*.service' -printf '%f\n'
-    command find /usr/lib/systemd/system -type f -name '*.service' -printf '%f\n'
+    command find /etc/systemd/system -type f -name '*.path' -printf '%f\n'
+    command find /usr/lib/systemd/system -type f -name '*.path' -printf '%f\n'
 end
 
 function __fish_systemctl_using_command
@@ -41,7 +41,7 @@ complete -f -c systemctl -n '__fish_systemctl_using_command start' -a '(__fish_s
 complete -f -c systemctl -n '__fish_systemctl_using_command start' -a '(__fish_systemctl_service_paths)' -d 'Path'
 
 # Stop
-complete -c systemctl -n "test (count (commandline -poc)) = 1" -xa stop -d 'Stop one or more units'
+complete -f -c systemctl -n "test (count (commandline -poc)) = 1" -a stop -d 'Stop one or more units'
 complete -f -c systemctl -n '__fish_systemctl_using_command stop' -a '(__fish_systemctl_services)' -d 'Service'
 complete -f -c systemctl -n '__fish_systemctl_using_command stop' -a '(__fish_systemctl_sockets)' -d 'Socket'
 complete -f -c systemctl -n '__fish_systemctl_using_command stop' -a '(__fish_systemctl_mounts)' -d 'Mount'
