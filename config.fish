@@ -11,3 +11,6 @@ set fish_greeting ""
 
 # Aliases
 alias dj='python manage.py'
+
+# Variables
+set -x EDITOR vim
