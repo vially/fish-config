@@ -1,5 +1,6 @@
 # virutalenv
 . ~/.config/fish/modules/virtualfish/virtual.fish
+. ~/.config/fish/modules/autoenv/autoenv.fish
 . ~/.config/fish/modules/localconfig/localconfig.fish
 
 set __fish_git_prompt_showdirtystate 1
