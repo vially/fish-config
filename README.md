@@ -1,10 +1,10 @@
 # Fish shell configuration files
 
 ## Installation
-```
-    $ git clone https://github.com/vially/fish-config.git ~/.config/fish
-    $ cd ~/.config/fish
-    $ git submodule update --init
+```bash
+$ git clone https://github.com/vially/fish-config.git ~/.config/fish
+$ cd ~/.config/fish
+$ git submodule update --init
 ```
 
 ## Modules
