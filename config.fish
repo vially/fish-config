@@ -1,6 +1,7 @@
-. ~/.config/fish/modules/virtualfish/virtual.fish       # virtualenv
-. ~/.config/fish/modules/autoenv/autoenv.fish           # autoload environment varialbes form .env file on directory change
-. ~/.config/fish/modules/localconfig/localconfig.fish   # load local machine config from local.fish
+. ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
+. ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
+. ~/.config/fish/modules/autoenv/autoenv.fish               # autoload environment varialbes form .env file on directory change
+. ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
 
 # git prompt config
 set __fish_git_prompt_showdirtystate 1
