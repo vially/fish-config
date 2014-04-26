@@ -15,6 +15,7 @@ set fish_greeting
 # Aliases
 alias dj='python manage.py'     # django alias
 alias uncrustify-all='uncrustify -c uncrustify.cfg -l OC --no-backup (ffind "(\.h|\.m)\$")'
+alias tl='tarsnap --list-archives'
 
 # Variables
 set -x EDITOR vim               # vim FTW
