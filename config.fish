@@ -14,6 +14,7 @@ set fish_greeting
 
 # Aliases
 alias dj='python manage.py'     # django alias
+alias fk='flake8 .'
 alias uncrustify-all='uncrustify -c uncrustify.cfg -l OC --no-backup (ffind "(\.h|\.m)\$")'
 alias tl='tarsnap --list-archives'
 
