@@ -1,7 +1,6 @@
 . ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
 . ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
 . ~/.config/fish/modules/autoenv/autoenv.fish               # autoload environment varialbes form .env file on directory change
-. ~/.config/fish/modules/npmpath/npmpath.fish               # add `npm bin` to PATH on directory change
 . ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
 
 # git prompt config
