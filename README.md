@@ -10,11 +10,7 @@ $ git submodule update --init
 ## Modules
 
 The modules can be enabled by sourcing the module file from your `~/.config/fish/config.fish`
-E.g.: `. ~/.config/fish/modules/autoenv/autoenv.fish`
-
-### autoenv
-
-Loads environment variables from an `.env` file on directory change
+E.g.: `. ~/.config/fish/modules/localconfig/localconfig.fish`
 
 ### localconfig
 
