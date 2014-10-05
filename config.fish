@@ -18,6 +18,7 @@ alias uncrustify-all='uncrustify -c uncrustify.cfg -l OC --no-backup (ffind "(\.
 alias tl='tarsnap --list-archives'
 alias ge='env | grep -i'
 alias pt='pt -S'
+alias t='task'
 
 # Variables
 set -x EDITOR vim               # vim FTW
