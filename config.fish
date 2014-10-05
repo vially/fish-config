@@ -21,5 +21,6 @@ alias pt='pt -S'
 alias t='task'
 
 # Variables
-set -x EDITOR vim                       # vim FTW
-set -x GOPATH $HOME/.local/share/go
+set -x EDITOR vim                                   # vim FTW
+set -x GOPATH $HOME/.local/share/go                 # go FTW
+set -x PATH $HOME/.local/bin $GOPATH/bin $PATH      # set PATH
