@@ -1,3 +1,3 @@
 function gi
-    curl http://www.gitignore.io/api/$argv
+    curl https://www.gitignore.io/api/$argv
 end
