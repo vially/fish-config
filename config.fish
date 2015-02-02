@@ -21,8 +21,9 @@ alias ge='env | grep -i'
 alias pt='pt -S'
 alias t='task'
 alias gsh='gcloud compute ssh'
-alias sctl='sudo systemctl'
-alias sctlu='systemctl --user'
+alias sc='systemctl'
+alias scu='systemctl --user'
+alias ssc='sudo systemctl'
 
 # Variables
 set -x EDITOR vim                                   # vim FTW
