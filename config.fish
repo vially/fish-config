@@ -1,6 +1,7 @@
 . ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
 . ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
 . ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
+eval (direnv hook fish)                                     # direnv integration
 
 # git prompt config
 set __fish_git_prompt_showdirtystate 1
@@ -19,8 +20,12 @@ alias tl='tarsnap --list-archives'
 alias ge='env | grep -i'
 alias pt='pt -S'
 alias t='task'
+alias gsh='gcloud compute ssh'
+alias sctl='sudo systemctl'
+alias sctlu='systemctl --user'
 
 # Variables
 set -x EDITOR vim                                   # vim FTW
-set -x GOPATH $HOME/.local/share/go                 # go FTW
-set -x PATH $HOME/.local/bin $GOPATH/bin $PATH      # set PATH
+set -x GOPATH ~/.local/share/go                 # go FTW
+set -x PATH ~/.local/bin $GOPATH/bin $PATH      # set PATH
+set -x GNUPGHOME ~/.config/gnupg
