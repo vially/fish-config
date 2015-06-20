@@ -1,5 +1,6 @@
 . ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
 . ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
+. ~/.config/fish/modules/chruby/auto.fish                   # chruby auto-activation
 . ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
 eval (direnv hook fish)                                     # direnv integration
 
@@ -12,6 +13,14 @@ set __fish_git_prompt_color_dirtystate red
 # Disable greeting
 set fish_greeting
 
+# Variables
+set -x NPM_PACKAGES ~/.local/share/npm
+set -x MANPATH $NPM_PACKAGES/share/man $MANPATH
+set -x NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
+set -x EDITOR vim                                                   # vim FTW
+set -x PATH ~/.local/bin $GOPATH/bin $NPM_PACKAGES/bin $PATH        # set PATH
+set -x GNUPGHOME ~/.config/gnupg
+
 # Aliases
 alias dj='python manage.py'     # django alias
 alias fk='flake8 .'
@@ -21,16 +30,15 @@ alias ge='env | grep -i'
 alias pt='pt -S'
 alias t='task'
 alias gsh='gcloud compute ssh'
-alias ssc='sudo systemctl'
-alias sc='systemctl'
+alias sctl='sudo systemctl'
+alias sctld='sudo systemctl daemon-reload'
+alias sctli='sudo systemctl status'
+alias sctlr='sudo systemctl restart'
+alias sctlk='sudo systemctl stop'
 alias scu='systemctl --user'
-alias scus='systemctl --user start'
+alias scud='systemctl --user daemon-reload'
 alias scuk='systemctl --user stop'
 alias scui='systemctl --user status'
 alias scur='systemctl --user restart'
-
-# Variables
-set -x EDITOR vim                                   # vim FTW
-set -x GOPATH ~/.local/share/go                 # go FTW
-set -x PATH ~/.local/bin $GOPATH/bin $PATH      # set PATH
-set -x GNUPGHOME ~/.config/gnupg
+alias vim='nvim'
+alias cg='cd $GOPATH'
