@@ -17,6 +17,11 @@ function fish_prompt --description "Write out the prompt"
         set -g __fish_prompt_cwd (set_color $fish_color_cwd)
     end
 
+    # envctl
+    if set -q __envctl_active_project
+        echo -n -s (set_color --bold magenta) "(" $__envctl_active_project ")" (set_color normal) " "
+    end
+
     # virtualenv
     if set -q VIRTUAL_ENV
         echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
