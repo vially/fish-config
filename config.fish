@@ -13,6 +13,9 @@ set __fish_git_prompt_color_dirtystate red
 # Disable greeting
 set fish_greeting
 
+# Enable vi-mode
+vi_mode
+
 # Variables
 set -x NPM_PACKAGES ~/.local/share/npm
 set -x MANPATH $NPM_PACKAGES/share/man $MANPATH
