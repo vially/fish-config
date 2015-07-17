@@ -40,34 +40,7 @@ function __envctl_activate --description "Activate an environment"
     return 2
   end
 
-  __envctl_deactivate
-  set -g __envctl_active_vars
-  set -l index 1
-  for line in (cat $envfile)
-    set -l var_name (echo $line | cut -d = -f 1)
-    set -l var_value (echo $line | cut -d = -f 2-)
-    set __envctl_active_vars[$index] $var_name
-    if set -q $var_name
-      set -g __envctl_prev_$var_name $$var_name
-    end
-    set -xg $var_name $var_value
-    set index (math "$index + 1")
-  end
-  set -g __envctl_active_project $envname
-end
-
-function __envctl_deactivate --description "Deactivate an environment"
-  for var_name in $__envctl_active_vars
-    set -l prev_var_name __envctl_prev_$var_name
-    if set -q $prev_var_name
-      set -xg $var_name $$prev_var_name
-      set -e $prev_var_name
-    else
-      set -e $var_name
-    end
-  end
-  set -e __envctl_active_vars
-  set -e __envctl_active_project
+  env __envctl_active_project=$envname (cat $envfile) fish
 end
 
 function __envctl_print --description "Print an environment"
@@ -105,14 +78,5 @@ function __envctl_edit --description "Edit an environment"
   if [ "$envname" = "$__envctl_active_project" ]
     __envctl_activate $envname
     echo "Environment reloaded"
-  end
-end
-
-function __envctl_debug --description "Print previous environment variables' values"
-  for var_name in $__envctl_active_vars
-    set -l prev_var_name __envctl_prev_$var_name
-    if set -q $prev_var_name
-      echo -s (set_color $fish_color_param) $var_name (set_color normal) "=" (set_color $fish_color_quote) $$prev_var_name (set_color normal)
-    end
   end
 end
