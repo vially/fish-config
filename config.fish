@@ -25,14 +25,9 @@ set -x PATH ~/.local/bin $GOPATH/bin $NPM_PACKAGES/bin $PATH        # set PATH
 set -x GNUPGHOME ~/.config/gnupg
 
 # Aliases
-alias dj='python manage.py'     # django alias
-alias fk='flake8 .'
 alias uncrustify-all='uncrustify -c uncrustify.cfg -l OC --no-backup (ffind "(\.h|\.m)\$")'
-alias tl='tarsnap --list-archives'
-alias ge='env | grep -i'
 alias pt='pt -S'
 alias t='task'
-alias gsh='gcloud compute ssh'
 alias sctl='sudo systemctl'
 alias sctld='sudo systemctl daemon-reload'
 alias sctli='sudo systemctl status'
@@ -44,4 +39,15 @@ alias scuk='systemctl --user stop'
 alias scui='systemctl --user status'
 alias scur='systemctl --user restart'
 alias vim='nvim'
-alias cg='cd $GOPATH'
+
+# Abbreviations
+abbr -a cg='cd $GOPATH'
+abbr -a dj='python manage.py'
+abbr -a fk='flake8 .'
+abbr -a ea='envctl activate'
+abbr -a ep='envctl print'
+abbr -a ee='envctl edit'
+abbr -a ge='env | grep -i'
+abbr -a gsh='gcloud compute ssh'
+abbr -a tl='tarsnap --list-archives'
+abbr -a vish='vim ~/.config/fish/config.fish'
