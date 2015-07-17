@@ -85,7 +85,9 @@ function __envctl_print --description "Print an environment"
     return 2
   end
 
-  cat $envfile
+  for line in (cat $envfile)
+    echo -s (set_color $fish_color_param) (echo $line | cut -d = -f 1) (set_color normal) "=" (set_color $fish_color_quote) (echo $line | cut -d = -f 2-) (set_color normal)
+  end
 end
 
 function __envctl_edit --description "Edit an environment"
@@ -110,7 +112,7 @@ function __envctl_debug --description "Print previous environment variables' val
   for var_name in $__envctl_active_vars
     set -l prev_var_name __envctl_prev_$var_name
     if set -q $prev_var_name
-      echo "$var_name=$$prev_var_name"
+      echo -s (set_color $fish_color_param) $var_name (set_color normal) "=" (set_color $fish_color_quote) $$prev_var_name (set_color normal)
     end
   end
 end
