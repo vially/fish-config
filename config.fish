@@ -1,8 +1,8 @@
-. ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
-. ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
-. ~/.config/fish/modules/chruby/auto.fish                   # chruby auto-activation
-. ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
-eval (direnv hook fish)                                     # direnv integration
+source ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
+source ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
+source ~/.config/fish/modules/chruby/auto.fish                   # chruby auto-activation
+source ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
+source ~/.config/fish/modules/direnv/hook.fish                   # direnv integration
 
 # git prompt config
 set __fish_git_prompt_showdirtystate 1
@@ -49,5 +49,7 @@ abbr -a ep='envctl print'
 abbr -a ee='envctl edit'
 abbr -a ge='env | grep -i'
 abbr -a gsh='gcloud compute ssh'
+abbr -a gcl='gcloud compute instances list'
+abbr -a gcdel='gcloud compute instances delete'
 abbr -a tl='tarsnap --list-archives'
 abbr -a vish='vim ~/.config/fish/config.fish'
