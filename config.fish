@@ -1,5 +1,6 @@
 source ~/.config/fish/modules/virtualfish/virtual.fish           # virtualenv
 source ~/.config/fish/modules/virtualfish/auto_activation.fish   # virtualenv auto-activation
+source ~/.config/fish/modules/fishmarks/marks.fish               # fishmarks
 source ~/.config/fish/modules/chruby/auto.fish                   # chruby auto-activation
 source ~/.config/fish/modules/localconfig/localconfig.fish       # load local machine config from local.fish
 source ~/.config/fish/modules/direnv/hook.fish                   # direnv integration
@@ -52,6 +53,8 @@ abbr -a scud='systemctl --user daemon-reload'
 abbr -a scuk='systemctl --user stop'
 abbr -a scui='systemctl --user status'
 abbr -a scur='systemctl --user restart'
+abbr -a gg='go get'
+abbr -a ggu='go get -u'
 
 # Enable vi-mode
 vi_mode
