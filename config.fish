@@ -55,6 +55,7 @@ abbr -a scui='systemctl --user status'
 abbr -a scur='systemctl --user restart'
 abbr -a gg='go get'
 abbr -a ggu='go get -u'
+abbr -a cat='ccat'
 
 # Enable vi-mode
 vi_mode
