@@ -51,7 +51,7 @@ function gce
       set container_manifest "$container_manifest"$line\n
     end
 
-    set metadata_flag "--metadata" "google-container-manifest=$container_manifest"
+    set metadata_flag "--metadata" "^GCLOUD_SAFER_DELIMITER^google-container-manifest=$container_manifest"
   else if [ -e containers.yaml ]
     set metadata_flag "--metadata-from-file" "google-container-manifest=containers.yaml"
   end
