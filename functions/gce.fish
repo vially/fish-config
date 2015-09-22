@@ -1,6 +1,6 @@
 function gce
   if [ (count $argv) -eq 0 ]
-    echo 'Usage: gce [create|delete]'
+    echo 'Usage: gce [create|scale|delete]'
     return 1
   end
 
@@ -15,13 +15,9 @@ function gce
 
   set -l cmd $argv[1]
 
-  if [ (count $argv) -gt 1 ]
-    set instance_name $argv[2]
-  else
-    set -l name (tq name $config_file)
-    if test $status -eq 0
-      set instance_name $name
-    end
+  set -l name (tq name $config_file ^ /dev/null)
+  if test $status -eq 0
+    set instance_name $name
   end
 
   set -l machine (tq machine $config_file ^ /dev/null)
@@ -57,8 +53,27 @@ function gce
   end
 
   if [ $cmd = "create" ]
+    if [ (count $argv) -gt 1 ]
+      set instance_name $argv[2]
+    end
+
     gcloud compute instances create $instance_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag
+  else if [ $cmd = "scale" ]
+      set -l instance_count $argv[2]
+      set -l running_instances (gcloud compute instances list --regexp="$instance_name-\\d+" --format=json | jq --raw-output ".[].name")
+      if [ $instance_count = "0" ]
+        gcloud compute instances delete --quiet $running_instances
+      else
+        for x in (seq $instance_count)
+          set -l instance_range_name "$instance_name-$x"
+          gcloud compute instances create $instance_range_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag
+        end
+      end
   else if [ $cmd = "delete" ]
+    if [ (count $argv) -gt 1 ]
+      set instance_name $argv[2]
+    end
+
     gcloud compute instances delete $instance_name
   end
 end
