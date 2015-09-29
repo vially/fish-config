@@ -12,6 +12,7 @@ function gce
   set -l preemptible_flag "--preemptible"
   set -l metadata_flag
   set -l tags_flag
+  set -l zone_flag
 
   set -l cmd $argv[1]
 
@@ -40,6 +41,11 @@ function gce
     set tags_flag "--tags" $tags
   end
 
+  set -l zone (tq zone $config_file ^ /dev/null)
+  if test $status -eq 0
+    set zone_flag "--zone" $zone
+  end
+
   if [ -e containers.tmpl.yaml ]
     set -l container_manifest_arr (expandenv containers.tmpl.yaml)
     set -l container_manifest
@@ -57,16 +63,16 @@ function gce
       set instance_name $argv[2]
     end
 
-    gcloud compute instances create $instance_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag
+    gcloud compute instances create $instance_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag $zone_flag
   else if [ $cmd = "scale" ]
       set -l instance_count $argv[2]
-      set -l running_instances (gcloud compute instances list --regexp="$instance_name-\\d+" --format=json | jq --raw-output ".[].name")
+      set -l running_instances (gcloud compute instances list --regexp="$instance_name-\\d+" $zone_flag --format=json | jq --raw-output ".[].name")
       if [ $instance_count = "0" ]
-        gcloud compute instances delete --quiet $running_instances
+        gcloud compute instances delete --quiet $zone_flag $running_instances
       else
         for x in (seq $instance_count)
           set -l instance_range_name "$instance_name-$x"
-          gcloud compute instances create $instance_range_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag
+          gcloud compute instances create $instance_range_name $machine_flag $image_flag $preemptible_flag $tags_flag $metadata_flag $zone_flag
         end
       end
   else if [ $cmd = "delete" ]
@@ -74,6 +80,6 @@ function gce
       set instance_name $argv[2]
     end
 
-    gcloud compute instances delete $instance_name
+    gcloud compute instances delete $zone_flag $instance_name
   end
 end
