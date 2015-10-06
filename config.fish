@@ -28,7 +28,6 @@ set -x GNUPGHOME ~/.config/gnupg
 
 # Aliases
 alias pt='pt -S'
-alias vim='nvim'
 
 # Abbreviations
 abbr -a cg='cd $GOPATH'
@@ -55,7 +54,7 @@ abbr -a scui='systemctl --user status'
 abbr -a scur='systemctl --user restart'
 abbr -a gg='go get'
 abbr -a ggu='go get -u'
-abbr -a cat='ccat'
+abbr -a upd='yaourt -Syua --noconfirm'
 
 # Enable vi-mode
 vi_mode
