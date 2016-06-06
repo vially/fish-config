@@ -54,7 +54,7 @@ abbr -a scui='systemctl --user status'
 abbr -a scur='systemctl --user restart'
 abbr -a gg='go get'
 abbr -a ggu='go get -u'
-abbr -a upd='yaourt -Syua --noconfirm'
+abbr -a upd='pacaur -Syu --noconfirm'
 
 # Enable vi-mode
 vi_mode

@@ -3,5 +3,5 @@ function whoowns
     if test -e $file_name
         set file_name (which $file_name)
     end
-    yaourt -Qo $file_name
+    pacaur -Qo $file_name
 end
