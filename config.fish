@@ -18,7 +18,6 @@ set __fish_git_prompt_color_dirtystate red
 
 # npm
 set -x NPM_PACKAGES ~/.local/share/npm
-set -x MANPATH $NPM_PACKAGES/share/man $MANPATH
 set -x NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 
 # generic
