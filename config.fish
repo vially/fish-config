@@ -25,9 +25,6 @@ set -x EDITOR vim                                                   # vim FTW
 set -x PATH ~/.local/bin $GOPATH/bin $NPM_PACKAGES/bin $PATH        # set PATH
 set -x GNUPGHOME ~/.config/gnupg
 
-# Aliases
-alias pt='pt -S'
-
 # Abbreviations
 abbr -a cg='cd $GOPATH'
 abbr -a dj='python manage.py'
