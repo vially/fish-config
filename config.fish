@@ -50,6 +50,7 @@ abbr -a scur='systemctl --user restart'
 abbr -a gg='go get'
 abbr -a ggu='go get -u'
 abbr -a upd='pacaur -Syu --noconfirm'
+abbr -a pa=pacaur
 
 # Enable vi-mode
 vi_mode
