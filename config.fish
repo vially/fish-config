@@ -22,7 +22,6 @@ set -x NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 
 # generic
 set -x EDITOR vim                                                   # vim FTW
-set -x PATH ~/.local/bin $GOPATH/bin $NPM_PACKAGES/bin $PATH        # set PATH
 set -x GNUPGHOME ~/.config/gnupg
 
 # Abbreviations
